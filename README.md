@@ -21,5 +21,7 @@ npm run dev
 # todo
 - [x] Basic components structure
 - [x] Feature : list of questions page
-- [] Feature : question page with details of votes and possibility to cast a vote
-- [] Feature : create a new question
+- [ ] Feature : question page
+  - [ ] Details of votes
+  - [ ] Option to cas a vote
+- [ ] Feature : create a new question
