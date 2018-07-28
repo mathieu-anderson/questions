@@ -1,0 +1,25 @@
+{
+  "name": "questions",
+  "version": "1.0.0",
+  "description": "See and answers questions through the Polls API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":  "next"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mathieu-anderson/questions.git"
+  },
+  "author": "Mathieu Anderson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mathieu-anderson/questions/issues"
+  },
+  "homepage": "https://github.com/mathieu-anderson/questions#readme",
+  "dependencies": {
+    "next": "^6.1.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  }
+}
