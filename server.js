@@ -9,6 +9,11 @@ app.prepare()
   .then(() => {
     const server = express();
 
+    server.get('/questions/:id', (req, res) => {
+      const actualPage = '/question';
+      const queryParams = { id: req.params.id };
+      app.render(req, res, actualPage, queryParams);
+    });
     server.get('*', (req, res) => handle(req, res));
     server.listen(3000, (err) => {
       if (err) throw err;
