@@ -29,7 +29,7 @@ Question.getInitialProps = async context => {
       details: null
     };
   }
-  console.log(res.data);
+
   return {
     error: false,
     details: res.data

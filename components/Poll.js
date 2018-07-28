@@ -52,29 +52,31 @@ class Poll extends React.Component {
           : null
       }
       <table style={pollStyle}>
-        <tr>
-          <th>Choice</th>
-          <th>Votes</th>
-          <th>%</th>
-          <th />
-        </tr>
-        {
-          choices.map(choice => {
-            return <tr key={choice.url}>
-              <td>{choice.choice}</td>
-              <td>{numeral(choice.votes).format()}</td>
-              <td>{getVoteRatio(choice.votes, getTotalVotes(choices))}</td>
-              <td>
-                <button
-                  onClick={() => this.castVote(choice.url)}
-                  disabled={!!hasVoted}
-                >
-                  Vote!
-                </button>
-              </td>
-            </tr>;
-          })
-        }
+        <tBody>
+          <tr>
+            <th>Choice</th>
+            <th>Votes</th>
+            <th>%</th>
+            <th />
+          </tr>
+          {
+            choices.map(choice => {
+              return <tr key={choice.url}>
+                <td>{choice.choice}</td>
+                <td>{numeral(choice.votes).format()}</td>
+                <td>{getVoteRatio(choice.votes, getTotalVotes(choices))}</td>
+                <td>
+                  <button
+                    onClick={() => this.castVote(choice.url)}
+                    disabled={!!hasVoted}
+                  >
+                    Vote!
+                  </button>
+                </td>
+              </tr>;
+            })
+          }
+        </tBody>
       </table>
       {
         hasVoted
