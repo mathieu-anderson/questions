@@ -1,23 +1,27 @@
+import moment from 'moment';
+
 import Link from 'next/link';
 
 const questionCardStyle = {
   padding: '0 1% 1% 1%',
+  margin: '1%',
   border: '1px solid #DDD',
-  cursor: 'pointer'
+  cursor: 'pointer',
+  flexGrow: '2'
 };
 
-const QuestionCard = (props) => {
+const QuestionCard = ({question, publishedAt, choices, url}) => {
   return (
-    <Link href='/question'>
+    <Link href={url}>
       <div style={questionCardStyle}>
         <h2>
-          Question title
+          {question}
         </h2>
         <div>
-          Published on 10.10.2018
+          Published on {moment(publishedAt).format('MMM Do YYYY')}
         </div>
         <div>
-          6 possible choices
+          {choices.length} possible choices
         </div>
       </div>
     </Link>
