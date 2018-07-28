@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import Layout from '../components/Layout';
+import ErrorMessage from '../components/ErrorMessage';
 import QuestionCard from '../components/QuestionCard';
 
 const listContainerStyles = {
@@ -15,7 +16,7 @@ const Index = ({questions, error}) => (
     <div style={listContainerStyles}>
       {
         error
-          ? <h2>There was an error while fetching the data. Please reload the page.</h2>
+          ? <ErrorMessage />
           : null
       }
       {
@@ -34,7 +35,7 @@ const Index = ({questions, error}) => (
   </Layout>
 );
 
-Index.getInitialProps = async function () {
+Index.getInitialProps = async () => {
   const res = await axios.get(`https://polls.apiblueprint.org/questions`);
 
   if (res.status !== 200) {
