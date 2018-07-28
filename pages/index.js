@@ -35,7 +35,7 @@ const Index = ({questions, error}) => (
   </Layout>
 );
 
-Index.getInitialProps = async function () {
+Index.getInitialProps = async () => {
   const res = await axios.get(`https://polls.apiblueprint.org/questions`);
 
   if (res.status !== 200) {

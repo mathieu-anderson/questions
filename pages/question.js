@@ -19,7 +19,7 @@ const Question = ({error, details}) => (
   </Layout>
 );
 
-Question.getInitialProps = async function (context) {
+Question.getInitialProps = async context => {
   const { id } = context.query;
   const res = await axios.get(`https://polls.apiblueprint.org/questions/${id}`);
 
