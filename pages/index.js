@@ -1,8 +1,16 @@
 import Layout from '../components/Layout';
+import QuestionCard from '../components/QuestionCard';
 
-const Index = () => (
+const listContainerStyles = {
+  display: 'flex',
+  padding: '1%'
+};
+
+const Index = (props) => (
   <Layout>
-    <p>Index page</p>
+    <div style={listContainerStyles}>
+      <QuestionCard />
+    </div>
   </Layout>
 );
 
