@@ -9,7 +9,7 @@ const linkStyle = {
 const headerStyle = {
   borderBottom: '1px solid #DDD',
   padding: '1%',
-  fontSize: '3em;'
+  fontSize: '3em'
 };
 
 const Header = () => {
