@@ -18,6 +18,12 @@ Start dev server on `localhost:3000`
 npm run dev
 ```
 
+# testing
+Testing is done with Jest and Enzyme. To run the test suite :
+```
+npm run test
+```
+
 # todo
 - [x] Basic components structure
 - [x] Feature : list of questions page
