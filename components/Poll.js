@@ -1,4 +1,5 @@
 import React from 'react';
+import Router from 'next/router';
 import numeral from 'numeral';
 import axios from 'axios';
 
@@ -7,6 +8,10 @@ import ErrorMessage from './ErrorMessage';
 const pollStyle = {
   width: '50%',
   textAlign: 'left'
+};
+
+const placeHolderStyle = {
+  minHeight: '3.5em'
 };
 
 const getTotalVotes = choices => {
@@ -19,31 +24,31 @@ const getVoteRatio = (votes, totalVotes) => {
   return numeral(votes / totalVotes).format('0.0%');
 };
 
-const initialState = {
-  error: false,
-  hasVoted: false
-};
-
 class Poll extends React.Component {
-  constructor () {
+  constructor (props) {
     super();
-    this.state = initialState;
+    this.state = {
+      error: false,
+      hasVoted: false,
+      choices: props.choices,
+      url: props.url
+    };
     this.castVote = this.castVote.bind(this);
   }
 
-  async castVote (url) {
-    const res = await axios.post(`https://polls.apiblueprint.org${url}`);
+  async castVote (choiceUrl, url) {
+    const res = await axios.post(`https://polls.apiblueprint.org${choiceUrl}`);
 
     if (res.status !== 201) {
       this.setState({...this.state, error: true});
     }
 
     this.setState({...this.state, hasVoted: true});
+    Router.push(url);
   }
 
   render () {
-    const { choices } = this.props;
-    const { error, hasVoted } = this.state;
+    const { error, hasVoted, choices, url } = this.state;
 
     return <React.Fragment>
       {
@@ -66,7 +71,7 @@ class Poll extends React.Component {
               <td>{getVoteRatio(choice.votes, getTotalVotes(choices))}</td>
               <td>
                 <button
-                  onClick={() => this.castVote(choice.url)}
+                  onClick={() => this.castVote(choice.url, url)}
                   disabled={!!hasVoted}
                 >
                   Vote!
@@ -79,7 +84,7 @@ class Poll extends React.Component {
       {
         hasVoted
           ? <h3>Thank you for voting</h3>
-          : null
+          : <div style={placeHolderStyle} />
       }
     </React.Fragment>;
   }

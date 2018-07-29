@@ -13,7 +13,7 @@ const Question = ({error, details}) => (
     }
     {
       details
-        ? <QuestionDetails question={details.question} choices={details.choices} />
+        ? <QuestionDetails url={details.url} question={details.question} choices={details.choices} />
         : null
     }
   </Layout>
@@ -29,7 +29,7 @@ Question.getInitialProps = async context => {
       details: null
     };
   }
-  console.log(res.data);
+
   return {
     error: false,
     details: res.data
