@@ -52,7 +52,7 @@ class Poll extends React.Component {
           : null
       }
       <table style={pollStyle}>
-        <tBody>
+        <tbody>
           <tr>
             <th>Choice</th>
             <th>Votes</th>
@@ -76,7 +76,7 @@ class Poll extends React.Component {
               </tr>;
             })
           }
-        </tBody>
+        </tbody>
       </table>
       {
         hasVoted
