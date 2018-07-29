@@ -23,6 +23,7 @@ const Index = ({questions, error}) => (
         questions
         ? questions.map(({published_at, url, choices, question}) => (
           <QuestionCard
+            key={url}
             publishedAt={published_at}
             url={url}
             choices={choices}
